@@ -10,17 +10,20 @@ namespace Biliárd_git
     {
         static void Main(string[] args)
         {
+
             List<int> golyók = new List<int>();
             Kezdés(golyók);
-            int leeső = leesősorsoló(golyók);
-            Kiíró(golyók);
-
-            //for (int i = 0; i < golyók.Count; i++)
-            //{
-            //    Console.WriteLine(golyók[i]);
-            //}
-
-
+            int leeső;           
+            do
+            {
+                leeső=leesősorsoló(golyók);
+                Kiíró(golyók);
+                Console.WriteLine(leeső);
+            } while (leeső!=8);
+            if ()
+            {
+                Console.WriteLine("NYERTÉL");
+            }
             Console.ReadKey();
         }
 
@@ -28,7 +31,7 @@ namespace Biliárd_git
         {
             foreach (int item in golyók)
             {
-                Console.WriteLine($"{item}");
+                Console.Write($"{item} ");
             }
         }
 
@@ -36,7 +39,7 @@ namespace Biliárd_git
         {
             Random gép = new Random();
             int szám = gép.Next(golyók.Count);
-            golyók.Remove(szám);
+            golyók.Remove(golyók[szám]);
             return golyók[szám];
 
         }
